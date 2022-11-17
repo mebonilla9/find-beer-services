@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  postgres-user:
+    container_name: postgres-user
+    image: postgres
+    environment:
+      POSTGRES_USER: db-user
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: user
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-user:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  postgres-brewery:
+    container_name: postgres-brewery
+    image: postgres
+    environment:
+      POSTGRES_USER: db-brewery
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: brewery
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-brewery:/data/postgres
+    ports:
+      - "5432:5433"
+    networks:
+      - postgres
+    restart: unless-stopped
+  postgres-booking:
+    container_name: postgres-booking
+    image: postgres
+    environment:
+      POSTGRES_USER: db-booking
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: booking
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-booking:/data/postgres
+    ports:
+      - "5432:5434"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
+
+volumes:
+  postgres-user:
+  postgres-brewery:
+  postgres-booking:
