@@ -10,6 +10,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>user-service</module>
+    <module>client</module>
   </modules>
 
   <name>find-beer-services</name>
