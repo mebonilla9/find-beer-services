@@ -1,0 +1,26 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: brewery-service
+  datasource:
+    password: 123456
+    url: jdbc:postgresql://localhost:5433/brewery
+    username: db-brewery
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    hostname: localhost

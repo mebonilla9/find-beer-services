@@ -11,6 +11,8 @@
   <modules>
     <module>user-service</module>
     <module>client</module>
+    <module>brewery-service</module>
+    <module>eureka-server</module>
   </modules>
 
   <name>find-beer-services</name>
